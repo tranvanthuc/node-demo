@@ -21,6 +21,9 @@ con.connect((err) => {
 });
 
 // api
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 app.get('/posts', (req, res) => {
   con.query('SELECT * FROM posts ORDER BY id asc', (err, rows) => {
     if (err) throw err;
