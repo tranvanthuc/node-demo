@@ -31,8 +31,7 @@ app.post('/posts', (req, res) => {
     if (err) res.send('Database problem');
 
     let post = req.body;
-    console.log(post);
-    con.query('INSERT INTO posts SET ?', post, (err, row) => {
+    connection.query('INSERT INTO posts SET ?', post, (err, row) => {
       if (err) throw err;
 
       const data = { id: row.insertId };
