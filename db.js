@@ -7,6 +7,7 @@ const pool = mysql.createPoolCluster();
 
 pool.add(exports.READ, {
   host: process.env.READ_DB_HOST,
+  port: process.env.READ_DB_PORT || 3306,
   user: process.env.READ_DB_USER,
   password: process.env.READ_DB_PASSWORD,
   database: process.env.READ_DB_DATABASE,
@@ -14,6 +15,7 @@ pool.add(exports.READ, {
 
 pool.add(exports.WRITE, {
   host: process.env.WRITE_DB_HOST,
+  port: process.env.WRITE_DB_PORT || 3306,
   user: process.env.WRITE_DB_USER,
   password: process.env.WRITE_DB_PASSWORD,
   database: process.env.WRITE_DB_DATABASE,

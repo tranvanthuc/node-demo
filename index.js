@@ -4,7 +4,9 @@ const cors = require('cors');
 const bodyparser = require('body-parser');
 const PORT = process.env.PORT || 5000;
 require('dotenv').config();
-app.listen(PORT, () => console.log(`Server listening in port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`http://localhost:${PORT}`)
+});
 app.use(cors());
 app.use(bodyparser.json());
 const db = require('./db.js');
