@@ -9,7 +9,7 @@ USER app
 WORKDIR /app
 
 # copy with user app
-COPY --chown=app:app package*.json ./
+ADD --chown=app:app package*.json ./
 RUN npm install
 
 # copy all source code
@@ -19,5 +19,3 @@ COPY --chown=app:app . .
 ENV PORT=5000
 
 EXPOSE 5000
-
-CMD [ "npm", "start" ]

@@ -4,23 +4,32 @@ services:
     container_name: web
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./docker/web/Dockerfile
     volumes:
       - ./:/app
     ports:
       - 5000:5000
+    command: ./sh/command.sh
+    depends_on:
+      - mysql
 
+  web-tests:
+    container_name: web-test
+    image: demo-nodejs_web
+    command: ./sh/test.sh
+    depends_on:
+      - web
   mysql:
     container_name: mysql
     platform: linux/amd64
-    restart: always
-    image: mysql:8.0
+    image: mysql:8.0.23
+    restart: unless-stopped
     ports: 
       - 3309:3306
     volumes:
       - mysql-data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: Admin@123
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: 'demo'
 
 volumes:

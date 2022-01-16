@@ -21,7 +21,7 @@ app.get('/posts', (req, res) => {
     if (err) res.send('Database problem');
 
     connection.query('SELECT * FROM posts ORDER BY id asc', (err, rows) => {
-      if (err) throw err;
+      if (err)  console.log(err);
 
       res.send(rows);
     });
