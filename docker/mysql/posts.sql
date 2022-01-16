@@ -18,6 +18,11 @@
 --
 -- Table structure for table `posts`
 --
+DROP DATABASE IF EXISTS `demo`;
+
+CREATE DATABASE `demo`;
+
+USE demo;
 
 DROP TABLE IF EXISTS `posts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -35,8 +40,7 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (1,'Demo title 1'),(2,'Demo title 2'),(3,'Demo title 3');
-/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
+INSERT INTO `posts` VALUES (1,'Demo dumb 1'),(2,'Demo dumb 2'),(3,'Demo dumb 3');
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,3 +53,4 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2022-01-16 10:53:24
+
