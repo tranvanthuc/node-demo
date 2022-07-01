@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 app.get('/check', (req, res) => {
   connection.connect(function(err) {
     if (err) {
-      throw err;
+      res.send(err);
     }
   
     res.send('Connected');
@@ -43,7 +43,7 @@ app.get('/posts', (req, res) => {
 
   connection.connect(function(err) {
     if (err) {
-      throw err;
+      res.send(err);
     }
   
     connection.query('SELECT * FROM posts ORDER BY id asc', (err, rows) => {
